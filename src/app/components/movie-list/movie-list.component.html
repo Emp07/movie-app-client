@@ -1,1 +1,11 @@
-<p>movie-list works!</p>
+<p>All Movies</p>
+
+<div *ngFor="let movie of movies | async">
+    <span> {{ movie.name }} </span>
+
+    <button [routerLink]="['/movie-detail', movie.id]">Details</button>
+    <button [routerLink]="['/edit-movie', movie.id]">Edit</button>
+    <button (click)="removeMovie(movie.id)">Delete</button>
+</div>
+
+<button routerLink="/add-movie">Add Movie</button>

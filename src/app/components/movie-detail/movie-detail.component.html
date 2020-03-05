@@ -1,1 +1,6 @@
-<p>movie-detail works!</p>
+<p>Movie Details</p>
+
+<div *ngIf="movie | async">
+    <p *ngIf="movie">Name: {{ (movie | async).name }}</p>
+    <p *ngIf="movie">Synopsis: {{ (movie | async).synopsis }}</p>
+</div>

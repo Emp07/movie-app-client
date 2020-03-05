@@ -1,11 +1,11 @@
-<p>Add a Movie...</p>
+<p>Edit Movie...</p>
 
-<form [formGroup]="addMovieForm" (ngSubmit)="onSubmit(addMovieForm.value)">
+<form *ngIf="movie | async" [formGroup]="editMovieForm" (ngSubmit)="onSubmit(editMovieForm.value)">
     <label for="id">Id</label>
     <input id="id" type="number" formControlName="id">
     <label for="name">Name</label>
     <input id="name" type="text" formControlName="name">
     <label for="synopsis">Synopsis</label>
     <input id="synopsis" type="text" formControlName="synopsis">
-    <button type="submit">Add</button>
+    <button type="submit">Save</button>
 </form>
