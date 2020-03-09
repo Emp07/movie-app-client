@@ -5,12 +5,7 @@ import { catchError } from 'rxjs/operators';
 
 import { HttpClient } from '@angular/common/http';
 import { HandleError, HttpErrorHandlerService } from '../http-error-handler/http-error-handler.service';
-
-export interface Movie {
-  id: string,
-  name: string,
-  synopsis: string
-}
+import { Movie } from '../../models/movie.model';
 
 @Injectable({
   providedIn: 'root'
