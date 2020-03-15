@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { MovieService } from 'src/app/services/movies/movie.service';
 
@@ -9,7 +9,7 @@ import { MovieService } from 'src/app/services/movies/movie.service';
   styleUrls: ['./add-movie.component.css']
 })
 export class AddMovieComponent implements OnInit {
-  addMovieForm;
+  addMovieForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,

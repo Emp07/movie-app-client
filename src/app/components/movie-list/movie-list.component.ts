@@ -18,11 +18,11 @@ export class MovieListComponent implements OnInit {
     this.fetchData();
   }
 
-  fetchData() {
+  fetchData(): void {
     this.movies = this.movieService.getMovies();
   }
 
-  removeMovie(id: number) {
+  removeMovie(id: number): void {
     this.movieService.removeMovie(id).subscribe(() => this.fetchData());
   }
 }

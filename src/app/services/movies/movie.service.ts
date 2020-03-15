@@ -12,7 +12,7 @@ import { Movie } from '../../models/movie.model';
 })
 
 export class MovieService {
-  moviesUrl = 'https://localhost:5001/Movies';
+  moviesUrl: string = 'https://localhost:5001/Movies';
 
   private handleError: HandleError;
 
@@ -23,14 +23,14 @@ export class MovieService {
     this.handleError = httpErrorHandler.createHandleError('EventService');
   }
 
-  getMovies() {
+  getMovies(): Observable<any> {
     return this.http.get<Movie>(this.moviesUrl)
       .pipe(
         catchError(this.handleError('getMovies'))
       );
   }
 
-  getMovie(id: number) {
+  getMovie(id: number): Observable<any> {
     const url = `${this.moviesUrl}/${id}`;
     return this.http.get<Movie>(url)
       .pipe(
@@ -38,14 +38,14 @@ export class MovieService {
       );
   }
 
-  addMovie(movie: Movie) {
+  addMovie(movie: Movie): Observable<any> {
     return this.http.post<Movie>(this.moviesUrl, movie)
       .pipe(
         catchError(this.handleError('addMovie', movie))
       );
   }
 
-  updateMovie(movie: Movie) {
+  updateMovie(movie: Movie): Observable<any> {
     const url = `${this.moviesUrl}/${movie.id}`;
     return this.http.put(url, movie)
       .pipe(
@@ -53,7 +53,7 @@ export class MovieService {
       );
   }
 
-  removeMovie(id: number) {
+  removeMovie(id: number): Observable<any> {
     const url = `${this.moviesUrl}/${id}`;
     return this.http.delete(url)
       .pipe(
